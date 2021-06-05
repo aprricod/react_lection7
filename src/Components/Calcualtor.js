@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Boiling } from "./Boiling";
 import Temperature from "./Temperature";
 import { CELSIUS, FAHRENHEIT } from "../consts";
+import { Panel } from "./Panel";
 
 export default class Calcualtor extends Component {
   constructor(props) {
@@ -63,7 +64,9 @@ export default class Calcualtor extends Component {
             this.setState({ scale: FAHRENHEIT, temperature });
           }}
         />
-        <Boiling celsius={celsius} />
+        <Panel>
+          <Boiling celsius={celsius} />
+        </Panel>
       </React.Fragment>
     );
   }

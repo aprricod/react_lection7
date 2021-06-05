@@ -1,0 +1,13 @@
+.split-panel {
+  width: 100%;
+}
+
+.split-panel-left {
+  float: left;
+  width: 40%;
+}
+
+.split-panel-right {
+  float: left;
+  width: 60%;
+}
