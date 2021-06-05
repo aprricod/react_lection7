@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Boiling } from "./Boiling";
-import Temperature from "./Temperature";
 import { CELSIUS, FAHRENHEIT } from "../consts";
-import { Panel } from "./Panel";
+import { Boiling } from "./Boiling";
+import { SplitPanel } from "./SplitPanel";
+import "./SplitPanel.css";
+import Temperature from "./Temperature";
 
 export default class Calcualtor extends Component {
   constructor(props) {
@@ -50,23 +51,28 @@ export default class Calcualtor extends Component {
         : temperature;
     return (
       <React.Fragment>
-        <Temperature
-          scale={CELSIUS}
-          temperature={celsius}
-          onTemperatureChange={(temperature) => {
-            this.setState({ scale: CELSIUS, temperature });
-          }}
-        />
-        <Temperature
-          scale={FAHRENHEIT}
-          temperature={fahrenheit}
-          onTemperatureChange={(temperature) => {
-            this.setState({ scale: FAHRENHEIT, temperature });
-          }}
-        />
-        <Panel>
-          <Boiling celsius={celsius} />
-        </Panel>
+        <SplitPanel
+          left={
+            <Temperature
+              scale={CELSIUS}
+              temperature={celsius}
+              onTemperatureChange={(temperature) => {
+                this.setState({ scale: CELSIUS, temperature });
+              }}
+            />
+          }
+          right={
+            <Temperature
+              scale={FAHRENHEIT}
+              temperature={fahrenheit}
+              onTemperatureChange={(temperature) => {
+                this.setState({ scale: FAHRENHEIT, temperature });
+              }}
+            />
+          }
+        ></SplitPanel>
+
+        <Boiling celsius={celsius} />
       </React.Fragment>
     );
   }
