@@ -7,6 +7,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Calcualtor />
+        {/* <Boiling celsius={0} /> */}
       </div>
     );
   }
