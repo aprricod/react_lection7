@@ -6,7 +6,7 @@ export const Boiling = (props) => {
     return <p className="hot">Вода кипит</p>;
   }
   if (props.celsius <= 0) {
-    return <p className="cold">Вода не кипит</p>;
+    return <p className="cold">Вода замерзла</p>;
   }
   // условие ниже не пишем, потому что верхние условия отрезают концы
   // if (props.celsius > 0 && props.celsius < 100) {

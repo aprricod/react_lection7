@@ -5,16 +5,27 @@ export default class Calcualtor extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      temperature: 0,
+    };
   }
 
+  handleChange = (e) => {
+    this.setState({
+      temperature: e.target.value,
+    });
+  };
+
   render() {
+    //   ниже два вариант обявления константы. первый вариант "деструктуризация"
+    const { temperature } = this.state;
+    // const temperature = this.state.temperature;
     return (
-      <div>
-        <Boiling celsius={110} />
-        <Boiling celsius={85} />
-        <Boiling celsius={0} />
-      </div>
+      <fieldset>
+        <legend>Температура</legend>
+        <input type="number" value={temperature} onChange={this.handleChange} />
+        <Boiling celsius={temperature} />
+      </fieldset>
     );
   }
 }
